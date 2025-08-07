@@ -1,0 +1,260 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="FilterPlanningData" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="io_dtPlanningData" Type="InOutArgument(sd:DataTable)" />
+    <x:Property Name="in_dtProductionSequence" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="in_resourceFullName" Type="InArgument(x:String)" />
+    <x:Property Name="in_resourceName" Type="InArgument(x:String)" />
+    <x:Property Name="in_lastGoalEndDate" Type="InArgument(s:DateTime)" />
+    <x:Property Name="out_nextGoalEndDate" Type="OutArgument(s:DateTime)" />
+    <x:Property Name="out_dateNextFriday" Type="OutArgument(s:DateTime)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>654,1685</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>FilterPlanningData_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Globalization</x:String>
+      <x:String>Microsoft.Graph</x:String>
+      <x:String>Microsoft.Graph.Extensions</x:String>
+      <x:String>Microsoft.Graph.CallRecords</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>Microsoft.Graph</AssemblyReference>
+      <AssemblyReference>Microsoft.Graph.Core</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Aplica os filtros nos dados obtidos no arquivo na pasta de planejamento para manter somente as linhas onde a data final é maior que a última data final e menor que a data da sexta-feira da semana atual. Além disso, também é feito o filtro para eliminar as linhas onde o 'Lote' já existe na aba 'Sequencia de produção'." DisplayName="FilterPlanningData" sap:VirtualizedContainerService.HintSize="572,1620" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="s:String[]" Name="arrayExistingLots" />
+      <Variable x:TypeArguments="x:Int32" Name="firstResourceColumnIndex" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Filter Planning Data" sap:VirtualizedContainerService.HintSize="510,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[String.Format(&#xA;&#x9;&quot;Aplicando os filtros nos dados obtidos da planilha de planejamento para obter as linhas corretas do material: {0}&quot;,&#xA;&#x9;in_resourceFullName&#xA;)]" />
+    <If Condition="[Not in_dtProductionSequence.Rows(0).ItemArray.Contains(in_resourceFullName)]" DisplayName="If dont exist column with resource full name" sap:VirtualizedContainerService.HintSize="510,360" sap2010:WorkflowViewState.IdRef="If_2">
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="376,178" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Throw DisplayName="Throw BRE - Column With Resource Name Dont Exists" Exception="[New BusinessRuleException(&#xA;&#x9;String.Format(&#xA;&#x9;&#x9;&quot;Não foi encontrada nenhuma coluna referênte ao recurso: {0}, na planilha 'Sequência de produção'&quot;,&#xA;&#x9;&#x9;in_resourceFullName&#xA;&#x9;)&#xA;)]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_1" />
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_5" />
+      </If.Else>
+    </If>
+    <ui:MultipleAssign DisplayName="Multiple Assign - Get Planning Data and Next Goal End Date" sap:VirtualizedContainerService.HintSize="510,240" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+      <ui:MultipleAssign.AssignOperations>
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Int32">[firstResourceColumnIndex]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Int32" xml:space="preserve">[in_dtProductionSequence.Columns.Cast(Of DataColumn)().Select(
+	Function(col, index) If(
+		in_dtProductionSequence.Rows(0)(col).ToString.Contains(in_resourceFullName),
+		index,
+		-1
+	)
+).Where(Function(index) index&lt;&gt;-1).ToArray().First]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="s:String[]">[arrayExistingLots]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="s:String[]" xml:space="preserve">[in_dtProductionSequence.AsEnumerable().Select(
+	Function(row) row(firstResourceColumnIndex+2).ToString.Trim
+).Where(Function(lot) Not String.IsNullOrEmpty(lot)).ToArray]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap:VirtualizedContainerService.HintSize="334,25" sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="s:DateTime">[out_dateNextFriday]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="s:DateTime">[DateTime.Now.AddDays((System.DayOfWeek.Friday - DateTime.Now.DayOfWeek+7) Mod 7).Date.AddHours(23).AddMinutes(59)]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="sd:DataTable">[io_dtPlanningData]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="sd:DataTable" xml:space="preserve">[If(
+	io_dtPlanningData.AsEnumerable().Where(
+		Function(row) row("Recurso").ToString.Trim.ToLower.Equals(in_resourceName.Trim.ToLower) AndAlso
+			Not arrayExistingLots.Contains(row("Lote").ToString.Trim) AndAlso
+			If(
+				DateTime.TryParseExact(row("Data Fim").ToString,"dd/MM/yy HH:mm", Globalization.CultureInfo.InvariantCulture, Globalization.DateTimeStyles.None,Nothing),
+				in_lastGoalEndDate &lt; DateTime.ParseExact(row("Data Fim").ToString,"dd/MM/yy HH:mm", Globalization.CultureInfo.InvariantCulture, Globalization.DateTimeStyles.None) AndAlso
+				DateTime.ParseExact(row("Data Fim").ToString,"dd/MM/yy HH:mm", Globalization.CultureInfo.InvariantCulture, Globalization.DateTimeStyles.None) &lt;= out_dateNextFriday,
+				False
+			)
+	).Count &gt; 0,
+		io_dtPlanningData.AsEnumerable().Where(
+		Function(row) row("Recurso").ToString.Trim.ToLower.Equals(in_resourceName.Trim.ToLower) AndAlso
+			Not arrayExistingLots.Contains(row("Lote").ToString.Trim) AndAlso
+			If(
+				DateTime.TryParseExact(row("Data Fim").ToString,"dd/MM/yy HH:mm", Globalization.CultureInfo.InvariantCulture, Globalization.DateTimeStyles.None,Nothing),
+				in_lastGoalEndDate &lt; DateTime.ParseExact(row("Data Fim").ToString,"dd/MM/yy HH:mm", Globalization.CultureInfo.InvariantCulture, Globalization.DateTimeStyles.None) AndAlso
+				DateTime.ParseExact(row("Data Fim").ToString,"dd/MM/yy HH:mm", Globalization.CultureInfo.InvariantCulture, Globalization.DateTimeStyles.None) &lt;= out_dateNextFriday,
+				False
+			)
+	).CopyToDataTable(),
+	New System.Data.DataTable
+)]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="s:DateTime">[out_nextGoalEndDate]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="s:DateTime">[out_dateNextFriday.addDays(-1)]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+        </scg:List>
+      </ui:MultipleAssign.AssignOperations>
+    </ui:MultipleAssign>
+    <If Condition="[io_dtPlanningData.Rows.Count&gt;0]" DisplayName="If planningData rows is greater than zero" sap:VirtualizedContainerService.HintSize="510,395" sap2010:WorkflowViewState.IdRef="If_1">
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="476,213" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign sap2010:Annotation.AnnotationText="Realiza o ajuste na tabela para manter somente as colunas que devem ser escritas na planilha." DisplayName="Assign - Filter Data Columns" sap:VirtualizedContainerService.HintSize="434,125" sap2010:WorkflowViewState.IdRef="Assign_1">
+            <Assign.To>
+              <OutArgument x:TypeArguments="sd:DataTable">[io_dtPlanningData]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="sd:DataTable" xml:space="preserve">[io_dtPlanningData.DefaultView.ToTable(
+	False,
+	"Descrição",
+	"Qtde [kg]",
+	"Tipo",
+	"R",
+	"Ordem",
+	"Lote",
+	"Limpeza",
+	"Filtro Prensa",
+	"Derretedor Qtde &amp; Tempo",
+	"T. Transição [hr]",
+	"T. Produção [hr]",
+	"Data Início",
+	"Data Fim"
+)]</InArgument>
+            </Assign.Value>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </Assign>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_3" />
+      </If.Else>
+    </If>
+    <ui:LogMessage DisplayName="Log Planning Data Rows Count" sap:VirtualizedContainerService.HintSize="510,141" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[String.Format(&#xA;&#x9;&quot;Foram obtidos: {0}, linhas para serem inseridas com data fim entre {1} e {2}&quot;,&#xA;&#x9;io_dtPlanningData.Rows.Count,&#xA;&#x9;in_lastGoalEndDate.ToString(&quot;dd/MM/yyyy&quot;),&#xA;&#x9;out_dateNextFriday.ToString(&quot;dd/MM/yyyy&quot;)&#xA;)]" />
+  </Sequence>
+</Activity>

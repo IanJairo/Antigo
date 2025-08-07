@@ -1,0 +1,122 @@
+{
+  "Workflows": [
+    {
+      "Path": null,
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": null,
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Main.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "transactionItem&StateMachine_1",
+        "dtReport&StateMachine_1",
+        "businessException&StateMachine_1",
+        "config&StateMachine_1",
+        "retryableError&StateMachine_1",
+        "transactionNumber&StateMachine_1",
+        "consecutiveApplicationExceptions&StateMachine_1",
+        "fatalError&StateMachine_1",
+        "inputFilesDownloaded&StateMachine_1",
+        "errorTryingToReport&StateMachine_1",
+        "dictFilesDownloaded&StateMachine_1",
+        "dictItemOutput&StateMachine_1",
+        "reportFilePath&StateMachine_1",
+        "maxRetryNumberQueue&Sequence_3",
+        "testList&Sequence_3",
+        "stopSignal&State_3"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_shouldReport",
+        "in_shouldUseConfigFromStorageBucket",
+        "in_processQueueName",
+        "in_processQueueFolder",
+        "in_environment"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "02-Framework/Process.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dtLastWeek&Sequence_1",
+        "goalFinalDate&Sequence_1",
+        "planningFilePath&Sequence_1",
+        "dtPlanningData&Sequence_1",
+        "resourceFullName&Sequence_1",
+        "dtProductionSequence&Sequence_1",
+        "nextGoalEndDate&Sequence_1",
+        "dateNextFriday&Sequence_1",
+        "centralSheetFilePath&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_transactionItem",
+        "in_config",
+        "out_dictItemOutput"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "05-Workflows/FilesAndFolders/FindPlanningFile.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "listPlanningFiles&Sequence_1",
+        "planningFolderExists&Sequence_1",
+        "planningFilePath1&Sequence_1",
+        "planningFilePath2&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_planningFolder",
+        "in_goalFinalDate",
+        "out_planningFilePath"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "05-Workflows/FilesAndFolders/WritePlanningData.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dtCurrentWeek&Sequence_1",
+        "resourceNameRowIndex&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_centralSheetFilePath",
+        "in_sheetName",
+        "in_dtPlanningData",
+        "in_resourceName",
+        "in_readRange",
+        "in_writeRange",
+        "in_writeRangeRowsGap",
+        "in_goalEndDate",
+        "in_goalEndDateCell",
+        "in_goalEndDateRowsGap",
+        "in_resourceNameColumnNumber",
+        "in_goalInitialDate",
+        "in_dateNextFriday",
+        "in_goalInitialDateCell"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "05-Workflows/FilesAndFolders/WriteRangeGeneric.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_filePath",
+        "in_sheetName",
+        "in_range",
+        "in_dtData",
+        "in_addHeaders"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    }
+  ]
+}

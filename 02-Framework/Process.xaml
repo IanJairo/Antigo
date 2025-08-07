@@ -1,0 +1,331 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Process" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property sap2010:Annotation.AnnotationText="Transaction item to be processed." Name="in_transactionItem" Type="InArgument(ui:QueueItem)" />
+    <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="out_dictItemOutput" Type="OutArgument(scg:Dictionary(x:String, x:String))" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1208,3194</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="50">
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Windows.Forms</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>Smarthis.UiPathLib</x:String>
+      <x:String>Smarthis.UiPathLib.Extension</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>System.Globalization</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="80">
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Windows.Forms</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>Smarthis.UiPathLib</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="541,3129" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="dtLastWeek" />
+      <Variable x:TypeArguments="s:DateTime" Name="goalFinalDate" />
+      <Variable x:TypeArguments="x:String" Name="planningFilePath" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dtPlanningData" />
+      <Variable x:TypeArguments="x:String" Name="resourceFullName" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dtProductionSequence" />
+      <Variable x:TypeArguments="s:DateTime" Name="nextGoalEndDate" />
+      <Variable x:TypeArguments="s:DateTime" Name="dateNextFriday" />
+      <Variable x:TypeArguments="x:String" Name="centralSheetFilePath" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="479,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[String.Format(&#xA;&#x9;&quot;Iniciando o processamento o item: {0}&quot;,&#xA;&#x9;in_transactionItem.Reference&#xA;)]" />
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Procura a última versão da planilha central no sharepoint&#xA;" DisplayName="DownloadFileOfSharepoint - Invoke Workflow File (06-Tests\GetFileOfSharepoint.xaml)" sap:VirtualizedContainerService.HintSize="479,229" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="05-Workflows\FilesAndFolders\DownloadFileOfSharepoint.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_tenantIdOffice365">[DirectCast(in_config("tenantIdOffice365AppPassword"), System.Security.SecureString).ToPlainString]</InArgument>
+        <InArgument x:TypeArguments="ss:SecureString" x:Key="in_clientSecretOffice365App">[DirectCast(in_config("clientSecretOffice365AppPassword"), System.Security.SecureString)]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_clientIdOffice365">[DirectCast(in_config("clientIdOffice365AppPassword"), System.Security.SecureString).ToPlainString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_folderPath">[in_config("tempFolderPath").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_folderSharepoint">[in_config("centralSheetFolderSharepoint").tostring]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_fileName">[in_config("centralSheetFileName").tostring]</InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_filePath">[centralSheetFilePath]</OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:InvokeWorkflowFile>
+    <Assign DisplayName="Assign - centralSheetFilePath" sap:VirtualizedContainerService.HintSize="479,82" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Object">[in_config("centralSheetFilePath")]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Object">[centralSheetFilePath]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Executa o comando CTRL + ALT + F9 dentro do excel que as formulas seja executas e os campos formatados&#xA;&#xA;" DisplayName="ExecuteExcelFormulas- Invoke Workflow File (06-Tests\Sequence.xaml)" sap:VirtualizedContainerService.HintSize="479,154" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_14" UnSafe="False" WorkflowFileName="05-Workflows\FilesAndFolders\ExecuteExcelFormula.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_filePath">[in_config("centralSheetFilePath").toString]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Realiza a leitura da aba da semana anterior." DisplayName="ReadExcelFile - Invoke Workflow File (05-Workflows\FilesAndFolders\ReadExcelFile.xaml)" sap:VirtualizedContainerService.HintSize="479,203" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="05-Workflows\FilesAndFolders\ReadExcelFile.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_filePath">[DirectCast(in_config("centralSheetFilePath"), System.String)]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_sheetName">[in_transactionItem.SpecificContent("LastWeekSheetName").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_readRange">[DirectCast(in_config("weekSheetReadRange"), System.String)]</InArgument>
+        <InArgument x:TypeArguments="x:Boolean" x:Key="in_addHeaders">False</InArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dtData">[dtLastWeek]</OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Obtém a data final da meta da semana anterior e o nome completo do recurso." DisplayName="GetResourceInformation - Invoke Workflow File (05-Workflows\FilesAndFolders\GetFinalGoalDate.xaml)" sap:VirtualizedContainerService.HintSize="479,214" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="05-Workflows\FilesAndFolders\GetResourceInformation.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_resourceName">[in_transactionItem.SpecificContent("ResourceName").ToString]</InArgument>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtWeekResources">[dtLastWeek]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_resourceNameColumnNumber">[DirectCast(in_config("resourceNameColumnNumber"), System.Int32)]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_goalFinalDateColumnNumber">[DirectCast(in_config("goalFinalDateColumnNumber"), System.Int32)]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_rowIndexGap">[DirectCast(in_config("rowIndexGap"), System.Int32)]</InArgument>
+        <OutArgument x:TypeArguments="s:DateTime" x:Key="out_goalFinalDate">[goalFinalDate]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_resourceFullName">[resourceFullName]</OutArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_resourceFullNameColumnNumber">[DirectCast(in_config("resourceFullNameColumnNumber"), System.Int32)]</InArgument>
+        <InArgument x:TypeArguments="s:DateTime" x:Key="in_dateToday">[Now]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Obtém o caminho do arquivo da pasta de planejamento a partir da data final da meta da semana anterior." DisplayName="FindPlanningFile - Invoke Workflow File (05-Workflows\FilesAndFolders\FindPlanningFile.xaml)" sap:VirtualizedContainerService.HintSize="479,229" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="05-Workflows\FilesAndFolders\FindPlanningFile.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_planningFolder">[in_config("planningFolderPath").ToString]</InArgument>
+        <InArgument x:TypeArguments="s:DateTime" x:Key="in_goalFinalDate">[goalFinalDate]</InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_planningFilePath">[planningFilePath]</OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Realiza a leitura da planilha na pasta de planejamento." DisplayName="ReadExcelFile - Invoke Workflow File (05-Workflows\FilesAndFolders\ReadExcelFile.xaml)" sap:VirtualizedContainerService.HintSize="479,203" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="05-Workflows\FilesAndFolders\ReadExcelFile.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_filePath">[planningFilePath]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_sheetName">[DirectCast(in_config("planningSheetName"), System.String)]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_readRange">[DirectCast(in_config("planningReadRange"), System.String)]</InArgument>
+        <InArgument x:TypeArguments="x:Boolean" x:Key="in_addHeaders">True</InArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dtData">[dtPlanningData]</OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Realiza a leitura da planilha central na aba de 'Sequência de produção'" DisplayName="ReadExcelFile - Invoke Workflow File (05-Workflows\FilesAndFolders\ReadExcelFile.xaml)" sap:VirtualizedContainerService.HintSize="479,214" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="05-Workflows\FilesAndFolders\ReadExcelFile.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_filePath">[DirectCast(in_config("centralSheetFilePath"), System.String)]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_sheetName">[DirectCast(in_config("productionSequenceSheetName"), System.String)]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_readRange">[DirectCast(in_config("productionSequenceReadRange"), System.String)]</InArgument>
+        <InArgument x:TypeArguments="x:Boolean" x:Key="in_addHeaders">False</InArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dtData">[dtProductionSequence]</OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="FilterPlanningData - Invoke Workflow File (05-Workflows\Data\FilterPlanningData.xaml)" sap:VirtualizedContainerService.HintSize="479,172" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="05-Workflows\Data\FilterPlanningData.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dtPlanningData">[dtPlanningData]</InOutArgument>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtProductionSequence">[dtProductionSequence]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_resourceFullName" xml:space="preserve">[If (
+    resourceFullName = "PASTILHADOR" Or resourceFullName = "FLOCADOR", 
+	System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(resourceFullName.ToLower),
+	resourceFullName
+)]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_resourceName">[in_transactionItem.SpecificContent("ResourceName").ToString]</InArgument>
+        <InArgument x:TypeArguments="s:DateTime" x:Key="in_lastGoalEndDate">[goalFinalDate]</InArgument>
+        <OutArgument x:TypeArguments="s:DateTime" x:Key="out_nextGoalEndDate">[nextGoalEndDate]</OutArgument>
+        <OutArgument x:TypeArguments="s:DateTime" x:Key="out_dateNextFriday">[dateNextFriday]</OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="WritePlanningData - Invoke Workflow File (05-Workflows\FilesAndFolders\WritePlanningData.xaml)" sap:VirtualizedContainerService.HintSize="479,172" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="05-Workflows\FilesAndFolders\WritePlanningData.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_centralSheetFilePath">[DirectCast(in_config("centralSheetFilePath"), System.String)]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_sheetName">[in_transactionItem.SpecificContent("CurrentWeekSheetName").ToString]</InArgument>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtPlanningData">[dtPlanningData]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_resourceName">[in_transactionItem.SpecificContent("ResourceName").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_readRange">[DirectCast(in_config("weekSheetReadRange"), System.String)]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_writeRange">[DirectCast(in_config("planningDataWriteRange"), System.String)]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_writeRangeRowsGap">[DirectCast(in_config("planningDataRowsGap"), System.Int32)]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_goalEndDate">[nextGoalEndDate.ToString("MM/dd/yyyy HH:mm:ss")]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_goalEndDateCell">[DirectCast(in_config("goalEndDateCell"), System.String)]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_goalEndDateRowsGap">[DirectCast(in_config("goalEndDateRowsGap"), System.Int32)]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_resourceNameColumnNumber">[DirectCast(in_config("resourceNameColumnNumber"), System.Int32)]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_goalInitialDate">[goalFinalDate.ToString("MM/dd/yyyy HH:mm:ss")]</InArgument>
+        <InArgument x:TypeArguments="s:DateTime" x:Key="in_dateNextFriday">[dateNextFriday]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_goalInitialDateCell">[DirectCast(in_config("goalInitialDateCell"), System.String)]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Manda a última versão da planilha central ao sharepoint&#xA;" DisplayName="UploadFileOfSharepoint - Invoke Workflow File (05-Workflows\FilesAndFolders\UploadFileOfSharepoint.xaml)" sap:VirtualizedContainerService.HintSize="479,229" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="05-Workflows\FilesAndFolders\UploadFileOfSharepoint.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_tenantIdOffice365">[DirectCast(in_config("tenantIdOffice365AppPassword"), System.Security.SecureString).ToPlainString]</InArgument>
+        <InArgument x:TypeArguments="ss:SecureString" x:Key="in_clientSecretOffice365App">[DirectCast(in_config("clientSecretOffice365AppPassword"), System.Security.SecureString)]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_clientIdOffice365">[DirectCast(in_config("clientIdOffice365AppPassword"), System.Security.SecureString).ToPlainString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_folderSharepoint">[in_config("centralSheetFolderSharepoint").tostring]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_fileName">[in_config("centralSheetFileName").tostring]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_filePath">[in_config("centralSheetFilePath").ToString]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:InvokeWorkflowFile>
+    <ui:MultipleAssign DisplayName="Multiple Assign - Generate Item Output Dictionary" sap:VirtualizedContainerService.HintSize="479,209" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+      <ui:MultipleAssign.AssignOperations>
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[out_dictItemOutput]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[New Dictionary(Of String, String)]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[out_dictItemOutput("goalFinalDate")]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[goalFinalDate.ToString("dd/MM/yyyy HH:mm:ss")]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[out_dictItemOutput("planningFilePath")]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[planningFilePath]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[out_dictItemOutput("nextGoalEndDate")]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[nextGoalEndDate.ToString("dd/MM/yyyy")]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+        </scg:List>
+      </ui:MultipleAssign.AssignOperations>
+    </ui:MultipleAssign>
+  </Sequence>
+</Activity>

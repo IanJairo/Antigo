@@ -1,0 +1,210 @@
+﻿{
+	 "development":{
+    "processQueueName":"OPERATIONS_DA_AdheranceIndicatorGoalGeneration",
+    "processQueueFolder":"",
+    "maxRetryNumberInitApplications":3,
+    "maxRetryNumberProcess":1,
+    "maxConsecutiveApplicationExceptions":3,
+    "useStorageBucketFiles":false,
+    "localBucketDir":"",
+    "exScreenshotsFolderPath":"01-Data\\Screenshots",
+    "pathFolderSharepoint":"/sites/Applications/brazil/latam_rpa_process_history/Process Logs/OPERATIONS_DA_AdheranceIndicator/OPERATIONS_DA_AdheranceIndicatorGoalGeneration-Performer",
+    "businessProcessName":"OPERATIONS_DA_AdheranceIndicatorGoalGeneration",
+	  
+     "centralSheetFilePath":"",
+	"centralSheetFileName":  "Metas e entrega da produção semanal1.xlsm",
+	"centralSheetFolderSharepoint": "https://croda.sharepoint.com/:x:/r/sites/Applications/brazil/latam_rpa_process_history/Process Logs/OPERATIONS_DA_AdheranceIndicator/OPERATIONS_DA_AdheranceIndicatorGoalGeneration-Performer/",
+    "weekSheetReadRange":"",
+    "resourceNameColumnNumber":13,
+    "resourceFullNameColumnNumber":1,
+    "goalFinalDateColumnNumber":12,
+    "rowIndexGap":3,
+    "planningFolderPath":"\\\\bramfp001.croda.com\\Files\\Supply Chain\\Planejamento\\Grupo de Trabalho\\Aspen Schedule",
+    "planningSheetName":"Sheet1",
+    "planningReadRange":"A4",
+    "productionSequenceSheetName":"Sequência de produção 2024",
+    "productionSequenceReadRange":"AI1",
+    "planningDataWriteRange":"A{0}",
+    "planningDataRowsGap":5,
+    "goalInitialDateCell":"L{0}",
+    "goalEndDateCell":"M{0}",
+    "goalEndDateRowsGap":5,
+	  
+    "reportTemplateFilePath":"01-Data/Input/reportTemplate.xlsx",
+    "outputReportFilePath":"01-Data/Output/Report {0} - OPERATIONS_DA_AdheranceIndicatorGoalGeneration-Performer.xlsx",
+    "reportSheetName":"Report",
+    "reportRange":"",
+	  
+    "mailReceiver":"ian.torrez@smarthis.com",
+    "mailReceiverCcFatalError":"",
+    "mailSender":"digital.6@croda.com",
+    "reportMailSubject":"[Relatório de execução] - OPERATIONS_DA_AdheranceIndicatorGoalGeneration-Performer",
+    "fatalErrorMailSubject":"[Falha na execução] - OPERATIONS_DA_AdheranceIndicatorGoalGeneration-Performer",
+	  
+    "endProcessDelayInSeconds":30,
+		
+    "assets":{
+	  "mailReceiverCc":{
+        "name":"SmarthisMailSupport",
+        "orchestratorFolder":"Default"
+      },
+	  "BaseUrlSharepoint":{
+         "name":"BaseUrlSharepoint",
+         "orchestratorFolder":"Default"
+			}
+    },
+    "credentials":{
+      "clientSecretOffice365App":{
+        "name":"ClientSecretOffice365App",
+        "orchestratorFolder":"Default"
+      },
+      "clientIdOffice365App":{
+        "name":"ClientIdOffice365App",
+        "orchestratorFolder":"Default"
+      },
+      "tenantIdOffice365App":{
+        "name":"TenantIdOffice365App",
+        "orchestratorFolder":"Default"
+      }
+    }
+  },
+	
+	 "homologation":{
+    "processQueueName":"OPERATIONS_DA_AdheranceIndicatorGoalGeneration",
+    "processQueueFolder":"",
+    "maxRetryNumberInitApplications":3,
+    "maxRetryNumberProcess":1,
+    "maxConsecutiveApplicationExceptions":3,
+    "useStorageBucketFiles":false,
+    "localBucketDir":"",
+    "exScreenshotsFolderPath":"01-Data\\Screenshots",
+    "pathFolderSharepoint":"/sites/Applications/brazil/latam_rpa_process_history/Process Logs/OPERATIONS_DA_AdheranceIndicator/OPERATIONS_DA_AdheranceIndicatorGoalGeneration-Performer",
+    "businessProcessName":"OPERATIONS_DA_AdheranceIndicatorGoalGeneration",
+	  
+     "centralSheetFilePath":"",
+	"centralSheetFileName":  "Copia Metas e entrega da produção semanal.xlsm",
+	"centralSheetFolderSharepoint": "https://croda.sharepoint.com/:x:/r/sites/Croda-Brazil-Industrial/Shared%20Documents/Producao/Departamento/Gest%C3%A3o%20da%20Produ%C3%A7%C3%A3o/15%20-%20Indicadores/{0}/",
+    "weekSheetReadRange":"",
+    "resourceNameColumnNumber":13,
+    "resourceFullNameColumnNumber":1,
+    "goalFinalDateColumnNumber":12,
+    "rowIndexGap":3,
+    "planningFolderPath":"\\\\bramfp001.croda.com\\Files\\Supply Chain\\Planejamento\\Grupo de Trabalho\\Aspen Schedule",
+    "planningSheetName":"Sheet1",
+    "planningReadRange":"A4",
+    "productionSequenceSheetName":"Sequência de produção 2024",
+    "productionSequenceReadRange":"AI1",
+    "planningDataWriteRange":"A{0}",
+    "planningDataRowsGap":5,
+    "goalInitialDateCell":"L{0}",
+    "goalEndDateCell":"M{0}",
+    "goalEndDateRowsGap":5,
+	  
+    "reportTemplateFilePath":"01-Data/Input/reportTemplate.xlsx",
+    "outputReportFilePath":"01-Data/Output/Report {0} - OPERATIONS_DA_AdheranceIndicatorGoalGeneration-Performer.xlsx",
+    "reportSheetName":"Report",
+    "reportRange":"",
+	  
+    "mailReceiver":"felipe.segal@croda.com",
+    "mailReceiverCcFatalError":"",
+    "mailSender":"digital.6@croda.com",
+    "reportMailSubject":"[Relatório de execução] - OPERATIONS_DA_AdheranceIndicatorGoalGeneration-Performer",
+    "fatalErrorMailSubject":"[Falha na execução] - OPERATIONS_DA_AdheranceIndicatorGoalGeneration-Performer",
+	  
+    "endProcessDelayInSeconds":30,
+		
+    "assets":{
+	  "mailReceiverCc":{
+        "name":"SmarthisMailSupport",
+        "orchestratorFolder":"Default"
+      },
+	  "BaseUrlSharepoint":{
+         "name":"BaseUrlSharepoint",
+         "orchestratorFolder":"Default"
+			}
+    },
+    "credentials":{
+      "clientSecretOffice365App":{
+        "name":"ClientSecretOffice365App",
+        "orchestratorFolder":"Default"
+      },
+      "clientIdOffice365App":{
+        "name":"ClientIdOffice365App",
+        "orchestratorFolder":"Default"
+      },
+      "tenantIdOffice365App":{
+        "name":"TenantIdOffice365App",
+        "orchestratorFolder":"Default"
+      }
+    }
+  },
+  "production":{
+    "processQueueName":"OPERATIONS_DA_AdheranceIndicatorGoalGeneration",
+    "processQueueFolder":"",
+    "maxRetryNumberInitApplications":3,
+    "maxRetryNumberProcess":1,
+    "maxConsecutiveApplicationExceptions":3,
+    "useStorageBucketFiles":false,
+    "localBucketDir":"",
+    "exScreenshotsFolderPath":"01-Data\\Screenshots",
+    "pathFolderSharepoint":"/sites/Applications/brazil/latam_rpa_process_history/Process Logs/OPERATIONS_DA_AdheranceIndicator/OPERATIONS_DA_AdheranceIndicatorGoalGeneration-Performer",
+    "businessProcessName":"OPERATIONS_DA_AdheranceIndicatorGoalGeneration",
+	  
+     "centralSheetFilePath":"",
+	"centralSheetFileName":  "Metas e entrega da produção semanal.xlsm",
+	"centralSheetFolderSharepoint": "https://croda.sharepoint.com/:x:/r/sites/Croda-Brazil-Industrial/Shared%20Documents/Producao/Departamento/Gest%C3%A3o%20da%20Produ%C3%A7%C3%A3o/15%20-%20Indicadores/{0}/",
+    "weekSheetReadRange":"",
+    "resourceNameColumnNumber":13,
+    "resourceFullNameColumnNumber":1,
+    "goalFinalDateColumnNumber":12,
+    "rowIndexGap":3,
+    "planningFolderPath":"\\\\bramfp001.croda.com\\Files\\Supply Chain\\Planejamento\\Grupo de Trabalho\\Aspen Schedule",
+    "planningSheetName":"Sheet1",
+    "planningReadRange":"A4",
+    "productionSequenceSheetName":"Sequência de produção 2024",
+    "productionSequenceReadRange":"AI1",
+    "planningDataWriteRange":"A{0}",
+    "planningDataRowsGap":5,
+    "goalInitialDateCell":"L{0}",
+    "goalEndDateCell":"M{0}",
+    "goalEndDateRowsGap":5,
+	  
+    "reportTemplateFilePath":"01-Data/Input/reportTemplate.xlsx",
+    "outputReportFilePath":"01-Data/Output/Report {0} - OPERATIONS_DA_AdheranceIndicatorGoalGeneration-Performer.xlsx",
+    "reportSheetName":"Report",
+    "reportRange":"",
+	  
+    "mailReceiver":"felipe.segal@croda.com",
+    "mailReceiverCcFatalError":"",
+    "mailSender":"digital.6@croda.com",
+    "reportMailSubject":"[Relatório de execução] - OPERATIONS_DA_AdheranceIndicatorGoalGeneration-Performer",
+    "fatalErrorMailSubject":"[Falha na execução] - OPERATIONS_DA_AdheranceIndicatorGoalGeneration-Performer",
+	  
+    "endProcessDelayInSeconds":30,
+		
+    "assets":{
+	  "mailReceiverCc":{
+        "name":"SmarthisMailSupport",
+        "orchestratorFolder":"Default"
+      },
+	  "BaseUrlSharepoint":{
+         "name":"BaseUrlSharepoint",
+         "orchestratorFolder":"Default"
+			}
+    },
+    "credentials":{
+      "clientSecretOffice365App":{
+        "name":"ClientSecretOffice365App",
+        "orchestratorFolder":"Default"
+      },
+      "clientIdOffice365App":{
+        "name":"ClientIdOffice365App",
+        "orchestratorFolder":"Default"
+      },
+      "tenantIdOffice365App":{
+        "name":"TenantIdOffice365App",
+        "orchestratorFolder":"Default"
+      }
+    }
+  }
+}
